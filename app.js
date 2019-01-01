@@ -20,12 +20,6 @@ var taskSchema = new mongoose.Schema({
 
 var Task = mongoose.model("Task", taskSchema)
 
-// Task.create({
-//     body: "Test Task"
-// });
-
-
-
 //Home Route
 app.get("/", function (req,res){
 	res.redirect("todo")
@@ -50,10 +44,45 @@ app.post("/todo", function (req,res){
 		if (err) {
 			console.log(err)
 		} else {
-			res.redirect("todo")
+			res.redirect("/todo")
 		}
 	})
 })
+
+//Edit Route
+app.get("/todo/:id/edit", function (req,res) {
+	Task.findById(req.params.id, function (err, foundTask) {
+		if (err) {
+			console.log (err) 
+		} else {
+			res.render("edit", {task:foundTask})
+		}
+	})
+})
+
+//Update Route
+app.put("/todo/:id", function (req, res) {
+	Task.findByIdAndUpdate(req.params.id,req.body.task, function (err, updatedTask) {
+		if (err) {
+			console.log(err)
+		} else {
+			res.redirect("/todo")
+		}
+	})
+})
+
+
+
+//Destroy Route
+app.delete("/todo/:id", function (req,res) {
+	Task.findByIdAndRemove(req.params.id, function (err) {
+		if (err) {
+			console.log(err)
+		} else {
+			res.redirect("/todo")
+		}
+	})
+});
 
 
 
