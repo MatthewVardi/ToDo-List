@@ -45,7 +45,9 @@
 					<div class = "border-bottom" > 
 						<blockquote class="blockquote">
 						  <p class="mb-0"> <%= task.body %> </p>
-						  <footer class="blockquote-footer d-none d-sm-block">Created on: <%= task.created.toDateString() %> </footer>
+						  <footer class="blockquote-footer d-none d-sm-block">
+						   <%= task.created.toDateString() %> 
+							</footer>
 						</blockquote>
 						<div class="mb-3">
 							<a class = "btn btn-sm btn-outline-secondary" href="/todo/<%=task._id%>/edit"> Edit </a>
