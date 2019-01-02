@@ -2,7 +2,7 @@
 
 ## Will be using Node/Express and MongoDB, following  RESTful Routing and CRUD.
 
-##Current state:
+## Current state:
 * Create route exists
 * Front end html fixed
 * Delete button works corectly
@@ -14,7 +14,7 @@
 * Completed greeting for logged in users
 * Tasks are now only displayed if the current user "owns" them, effectively not allowing  users to  modify other users tasks
 
-##Next Stages
+## Next Stages
 * flash error messages for registration errors or successful logins
 * refactoring app.js, create a folder for routes and models
 
